@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Document
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box; <!-- tüm etiketler için kutu sınırlaması yapar, paddingi artırrılsa bile şekli değişmez kutu küçülür. -->
+        }
+
+
+        .header{
+
+            background-color:lightgray;
+            padding:25px;
+            text-align:center;}
+
+
+        .nav{
+
+            overflow:hidden;
+            background-color:black;
+
+
+        }
+
+
+        .nav a{
+
+            padding:15px 17px;
+            float:left;
+            text-decoration:none;
+            color:white;
+
+        }
+
+        .nav a:hover{
+            background-color:gray;
+
+        }
+
+
+        .Column{
+
+            float:left;
+            padding:15px;
+
+        }
+
+        .Column.Side
+        {
+            width:25%;
+        }
+
+        .Column.MainContent
+        {
+            width:50%
+
+        }
+
+        .Column.Left
+        {
+            width:25%
+
+        }
+
+        .row::after{
+
+            content:"";
+            display:table;
+            clear:both;
+
+
+        }
+        .Footer {
+            background-color: lightgray;
+            padding:15px 12px;
+            text-align:center;
+        }
+
+        @media screen and (max-width:600px) 
+        {
+
+            .column.Side {
+                width: 100%
+            }
+            .Column.MainContent {
+                width: 100%
+            }
+
+            .Column.Left {
+                width: 100%
+            }
+
+
+
+        }
+
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+    <div class="header">
+        <h1>Header</h1>
+        <p>Resize the browser window to see the responsive effect</p>
+    </div>
+    
+
+    <div class="nav">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+
+    </div>
+
+    <div class="row">
+
+        <div class="Column Side">
+            <h2>Side</h2>
+            <p>Lorem</p>
+
+        </div>
+
+        <div class="Column MainContent">
+            <h2>Main Content</h2>
+            <p>Bilgiye ulaşmanın hem çok kolay hem de çok zor olduğu şu son zamanlarda, insanların bilgi ihtiyacını karşılamak için ille de basılı kaynaklara yönelmelerini beklemek oldukça yanlış bir düşünce biçimidir. Bilgi patlaması teriminin tam anlamıyla karşıladığı bu bilgi çokluğu içerisindeki karmaşa, bilgiye olan talebin büyüklüğünü anlatmakla beraber; doğru bilgiye ulaşmanın zorluğunu da belirtmiş oluyor.</p>
+            <p>Günlük hayatta yapmış olduğumuz gazete, kitap, magazin okuma, radyo dinleme, televizyon ya da film izleme, bilgisayar kullanma gibi hareketler bilgiye ulaşmak için kullandığımız yollardır. Her şeyin bu kadar çok ve çabuk değişti bir zaman diliminde, bilgiye ulaşmak için en önemli araçlardan birisi olarak tanımladığımız, bilgiye dayalı belgenin ham maddesi metinin ulaşım ve kullanım yollarının değişmemesini beklemek eksik bir düşüncedir.</p> 
+        </div>
+
+        <div class="Column Left">
+            <h2>Left</h2>
+            <p>Lorem</p>
+        </div>
+    </div>
+
+    <div class="Footer">
+        
+        <p>Footer</p>
+
+    </div>
+
+    
+
+
+</body>
+</html>
