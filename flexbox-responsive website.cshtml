@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style>
+
+        body {
+            background-color:aliceblue;
+        }
+
+        .header {
+            background-color: mediumseagreen;
+            padding: 60px;
+            text-align: center;
+            color: white
+        }
+
+        .navbar
+        {
+            display:flex;
+            background-color:darkslategray;
+
+
+
+        }
+        .navbar a {
+            padding:14px 20px;
+            color:white;
+            text-decoration:none;
+            text-align:center;
+
+        }
+
+            .navbar a:hover {
+                background-color: dimgray;
+                color: black;
+            }
+     .row{
+         display:flex;
+
+     }
+
+     .side{
+         flex:30%;
+         background-color:darkgray;
+         text-align:center;
+         padding:50px;
+         color:white;
+     }
+
+        .main {
+            flex: 70%;
+            background-color: gray;
+            padding: 40px 100px;
+            color: white;
+        }
+
+
+        .fakeimage {
+            background-color: white;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
+        .footer{
+            
+            margin:0;
+            padding:15px;
+            background-color:dimgray;
+            color:white;
+            text-align:center;
+        }
+
+        @@media screen and (max-width:700px)
+        {
+            .row, .navbar{
+
+                flex-direction:column;
+            }
+
+
+        }
+
+
+    </style>
+
+
+
+</head>
+
+
+<body>
+
+    <div style="background-color:yellow; padding:5px">
+        <h4 style="text-align:center">Resize the browser window to see the responsive effect. </h4>
+    </div>
+
+    <div class="header">
+        <h1>My Website</h1>
+        <p>With a <b>Flexible</b> Layout</p>
+
+    </div>
+
+    <div class="navbar">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <h4>About Me</h4>
+            <p>Photo of me:</p>
+
+            <div class="fakeimage"    style="height:200px">
+                Image
+
+            </div>
+
+            <p> Some text about me in culpa qui officia deserunt mollit anim.</p>
+
+            <h3>More Text:</h3>
+            <p>Lorem ipsum dolor sit ame.</p>
+
+            <div  class="fakeimage">
+                Image
+
+            </div>
+
+            <div class="fakeimage">
+                Image
+
+            </div>
+
+            <div  class="fakeimage">
+                Image
+
+            </div>
+           </div>
+
+
+        <div class="main">
+            <h2>WHAT IS THE ELEMENT? </h2>
+            <h5>Title description February 19,20212</h5>
+
+
+            <div class="fakeimage" style="height:200px">
+                Image
+
+            </div>
+
+            <br />
+
+            <p>In chemistry, an element is a pure substance consisting only of atoms that all have the same numbers of protons in their nuclei. </p>
+            <p>Unlike chemical compounds, chemical elements cannot be broken down into simpler substances by any chemical reaction. The number of protons in the nucleus is the defining property of an element, and is referred to as its atomic number (represented by the symbol Z) – all atoms with the same atomic number are atoms of the same element.[1] All of the baryonic matter of the universe is composed of chemical elements. When different elements undergo chemical reactions, atoms are rearranged into new compounds held together by chemical bonds. </p>
+            <br />
+
+            <h2>Atomic number</h2>
+            <h5>Title description February 19,20212</h5>
+
+
+            <div class="fakeimage" style="height:200px">
+                Image
+
+            </div>
+            <br />
+
+            <p>The atomic number of an element is equal to the number of protons in each atom, and defines the element. For example, all carbon atoms contain 6 protons in their atomic nucleus; so the atomic number of carbon is 6. Carbon atoms may have different numbers of neutrons; atoms of the same element having different numbers of neutrons are known as isotopes of the element.</p>
+
+        </div>
+</div>
+
+
+    <div class="footer">
+        <p>aysenrylmaz357@gmail.com</p></div>
+
+</body>
+</html>
