@@ -1,0 +1,138 @@
+form{
+
+    padding-top: 50px;
+    text-justify: auto;
+    height: auto;
+    width: auto;
+    font-family: arial;
+    font-size: 14px;
+    /* margin: 0px; */
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    margin: -15px 0 0 -15px;
+
+
+}
+form h2{
+    font-weight:bold;
+
+}
+div{
+    padding-top: 50px;
+    align-items: center;
+}
+
+form div{
+ padding-left:50px;
+
+}
+label {
+
+    padding-bottom: 5px;
+
+}
+form .form-group label:first-child{
+    padding-bottom: 25px;
+}
+
+form .radiostyle input,
+form .park input{
+    margin-right: 0.5rem; 
+    cursor: pointer;
+}
+
+form .insure select{
+    width: 250px;
+    height: 37px;
+    border: 1px solid #8d8c8c;
+    border-radius: 5px;
+    color: #8d8c8c;
+
+}
+
+.inputbox{
+    border: 1px solid #8d8c8c;
+    border-radius: 5px;
+    color: #8d8c8c;
+}
+
+span{
+   text-decoration: underline;
+   color: red;
+   padding-top: 5px;
+}
+
+button{
+margin-top: 20px;
+margin-left: 80px;
+
+}
+
+.result{
+display:inline;
+
+}
+/* 
+@media (min-width: 640px) 
+
+{ form{
+
+    display: block;
+    text-justify: auto;
+    height: 50%;
+    width: 330px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 0px;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    margin: -15px 0 0 -15px;
+
+
+}
+
+} 
+
+@media (min-width:960px) 
+
+{ form{
+
+    display: block;
+    text-justify: auto;
+    height: 70%;
+    width: 330px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 0px;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    margin: -15px 0 0 -15px;
+
+
+}
+
+} 
+
+@media (min-width:1100px) 
+
+{ form{
+
+    display: block;
+    text-justify: auto;
+    height: 250px;
+    width: 330px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 0px;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    margin: -15px 0 0 -15px;
+
+
+}
+
+}  */

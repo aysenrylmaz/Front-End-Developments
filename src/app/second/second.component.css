@@ -1,0 +1,48 @@
+form{
+
+    display: block;
+    text-justify: auto;
+    font-family: arial;
+    font-size: 14px;
+    margin: 0px;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    }
+
+form h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-group head tr{
+
+    text-justify: auto;
+    top: 100%;
+    left: 100%;
+}
+
+.tablediv{
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+
+}
+
+button{
+    margin: 10% 50%;
+    width: 200px;
+    
+    }
+
+.dltbtn{
+    display:block;
+    margin: 0;
+    width: 75px;
+    
+ }  
+
+ td{
+    white-space:nowrap;
+    overflow:hidden;
+ }

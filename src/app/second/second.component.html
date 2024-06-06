@@ -1,0 +1,71 @@
+<form #secondform="ngForm" (ngSubmit)="ngOnInit()">
+  <h2>Register List</h2>
+
+  <div class="form-group tablediv">
+    <table class="table">
+      <thead>
+        <!-- List name definition -->
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Adress</th>
+          <th scope="col">Telephone</th>
+          <th scope="col">Iban</th>
+          <th scope="col">Birthday</th>
+          <th scope="col">Drive Licence Day</th>
+          <th scope="col">Car insured?</th>
+          <th scope="col">Insurance Company</th>
+          <th scope="col">Vehicle Value(€)</th>
+          <th scope="col">Parked in private garage</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- List Variables -->
+        <tr *ngFor="let reg of this.setregisters; let id = index" [@EnterLeave]="'flyIn'">
+          <th scope="row">{{ id + 1 }}</th>
+          <td scope="row">{{ reg.name }}</td>
+          <td scope="row">{{ reg.mail }}</td>
+          <td scope="row">{{ reg.adress }} {{reg.postK  }}</td>
+          <td scope="row">{{ reg.telNum }}</td>
+          <td scope="row">{{ reg.iban }}</td>
+          <td scope="row">{{ reg.bday }}</td>
+          <td scope="row">{{ reg.dlday }}</td>
+          <td scope="row">{{ reg.insured }}</td>
+          <td scope="row">{{ reg.insureCompany }}</td>
+          <td scope="row">{{ reg.vecValue }}</td>
+          <td scope="row">{{ reg.parkGarage }}</td>
+          <td>
+            <!-- Update and delete button, it is turned back registiration page -->
+
+            <button
+               @del
+              type="button"
+              class="btn btn-outline-danger dltbtn"
+              (click)="deleteReg(id)"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary dltbtn"
+              (click)="updateReg(id)"
+            >
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Load from localstorage -->
+  <button
+    type="button"
+    class="btn btn-primary"
+    *ngIf="setregisters"
+    (click)="updateRegister()"
+  >
+    Load from Storage
+  </button>
+</form>
