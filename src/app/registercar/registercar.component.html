@@ -1,0 +1,274 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+<form #regcarForm="ngForm" (ngSubmit)="regCar()">
+  <h2>Register your car</h2>
+
+
+ <!-- Name definition --> 
+  <div class="form-group">
+    <label for="Fname">Full Name:*</label><br />
+    <input
+      required
+      type="text"
+      id="Fname"
+      class="form-control inputbox"
+      name="Fname"
+      [@buttonnEffect]='state.currentState'
+      (focus)="focusAnim('currentState')"
+      (blur)="focusAnim('currentState')"
+      ngModel
+      NameValidator
+      #Fname="ngModel"
+      [ngModel]="regcarForm.value.Fname"
+      placeholder="ex.Jane Doe"/>
+      <app-error-message [errorInput]="Fname"></app-error-message><br />
+  </div>
+
+  
+
+<!-- Mail definition -->
+  <div class="form-group">
+    <label for="mail">E-Mail:*</label><br />
+    <input
+      required
+      type="email"
+      class="form-control inputbox"
+      [@buttonnEffect]='state.currentState2'
+      (focus)="focusAnim('currentState2')"
+      (blur)="focusAnim('currentState2')"
+      id="mail"
+      name="mail"
+      ngModel
+      [ngModel]="regcarForm.value.mail"
+      #mail="ngModel"
+      email
+      placeholder="ex.janedoe@mail.com"/>
+      <!-- [class.is-invalid]="mail.invalid && mail.touched" -->
+      <app-error-message [errorInput]="mail"></app-error-message><br />
+  </div>
+
+  
+
+<!-- Adress definition -->
+  <div class="form-group">
+    <label for="adress">Adress:</label><br />
+    <input
+      required
+      type="text"
+      class="form-control inputbox"
+      [@buttonnEffect]='state.currentState3'
+      (focus)="focusAnim('currentState3')"
+      (blur)="focusAnim('currentState3')"
+      id="adress"
+      name="adress"
+      ngModel
+      [ngModel]="regcarForm.value.adress"
+      #adress="ngModel"
+      placeholder="Adress"/>
+      <!-- [class.is-invalid]="adress.invalid && adress.touched" -->
+      <input
+      required
+      type="text"
+      maxlength="5"
+      pattern='^\d{5}$'
+      [@buttonnEffect]='state.currentState3'
+      (focus)="focusAnim('currentState3')"
+      (blur)="focusAnim('currentState3')"
+      class="form-control inputbox"
+      id="postK"
+      name="postK"
+      ngModel
+      [ngModel]="regcarForm.value.postK"
+      #postK="ngModel"
+      placeholder="Post Code"/>
+      <!-- [class.is-invalid]="postK.invalid && postK.touched" -->
+      <app-error-message [errorInput]="postK"></app-error-message><br />
+  </div>
+
+  <div class="form-group">
+    <label for="telNum">Telephone:</label><br />
+    <input class="form-control inputbox" type="text" maxlength="20"
+    pattern='\(?\+\(?49\)?[ ()]?([- ()]?\d[- ()]?){10}'
+    id="telNum"
+    [@buttonnEffect]='state.currentState5'
+    (focus)="focusAnim('currentState5')"
+    (blur)="focusAnim('currentState5')"
+    name="telNum"
+    ngModel
+    [ngModel]="regcarForm.value.telNum"
+    #telNum="ngModel"
+    placeholder="(+49)">
+    <!-- [class.is-invalid]="telNum.invalid && telNum.touched" -->
+    <app-error-message [errorInput]="telNum"></app-error-message><br />
+  </div>
+
+
+  <div class="form-group bday">
+    <label for="bday">Date of Birth:</label><br />
+    <input
+      required
+      type="date"
+      class="form-control inputbox"
+      id="bday"
+      name="bday"
+      [@buttonnEffect]='state.currentState6'
+      (focus)="focusAnim('currentState6')"
+      (blur)="focusAnim('currentState6')"
+      (change)="bdayChange();"
+      ngModel
+      [ngModel]="regcarForm.value.bday"
+      #bday="ngModel"
+      placeholder="dd.mm.yyyy"/>
+      <app-error-message [errorInput]="bday"></app-error-message><br />
+  </div>
+
+
+  <div class="form-group">
+    <label for="iban">Iban:</label><br />
+    <input
+      required
+      type="iban"
+      class="form-control inputbox"
+      id="iban"
+      name="iban"
+      ngModel
+      (blur)="ibanValidate(regcarForm.value.iban)"
+      [@buttonnEffect]='state.currentState7'
+      (focus)="focusAnim('currentState7')"
+      (blur)="focusAnim('currentState7')"
+      [ngModel]="regcarForm.value.iban"
+      #iban="ngModel"
+      placeholder="DE"/>
+      <app-error-message [errorInput]="iban"></app-error-message><br />
+  </div>
+
+ 
+  <div class="form-group dlday">
+    <label for="dlday">Date of Driver Licence:</label><br />
+    <input
+      required
+      type="date"
+      class="form-control inputbox"
+      id="dlday"
+      name="dlday"
+      (change)="dldayChange();"
+      [@buttonnEffect]='state.currentState8'
+      (focus)="focusAnim('currentState8')"
+      (blur)="focusAnim('currentState8')"
+      ngModel
+      [ngModel]="regcarForm.value.dlday"
+      #dlday="ngModel"/>
+      <app-error-message [errorInput]="dlday" ></app-error-message><br />
+  </div>
+
+
+  <div class="form-group radiostyle">
+    <label>Is your car already insured?</label><br />
+    <input
+      required
+      type="radio"
+      id="radioyes"
+      name="insured"
+      value="true"
+      name="radioC"
+      ngModel
+      #radioC="ngModel"
+      [ngModel]="regcarForm.value.radioC"
+    />
+    <label for="yes">yes</label><br />
+    <input
+      type="radio"
+      id="radiono"
+      name="insured"
+      value="false"
+      name="radioC"
+      ngModel
+      #radioC="ngModel"
+      [ngModel]="regcarForm.value.radioC"
+    />
+    <label for="no">no</label>
+  </div>
+
+
+  <div class="form-group insure insuranceCompaniesList" *ngIf="radioC.value == 'true'">
+    <label for="inscompany">Select your insurance company?</label><br />
+    <select
+      (change)="validateInsurance()"
+      id="insuranceCompaniesList"
+      [ngModel]="insuranceitem"
+      [@buttonnEffect]='state.currentState9'
+      (focus)="focusAnim('currentState9')"
+      (blur)="focusAnim('currentState9')"
+      name="insurance"
+      ngModel
+      #insurance="ngModel"
+    >
+      <option value="" disabled>Please Select</option>
+      <option
+        *ngFor="let item of insuranceCompaniesList"
+        [value]="item.text"
+        [selected]="item.text == insuranceitem"
+      >
+        {{ item.text }}
+      </option></select>
+      <app-error-message [errorInput]="insurance"></app-error-message><br /></div>
+
+
+  <div class="form-group vecval">
+    <label for="vecval">Vehicle Value(€)</label><br />
+    <input
+      required
+      type="text"
+      id="vecval"
+      placeholder="ex. 34.250"
+      [@buttonnEffect]='state.currentState10'
+      (focus)="focusAnim('currentState10')"
+      (blur)="focusAnim('currentState10')"
+      class="form-control inputbox"
+      name="vecval"
+      #vecval="ngModel"
+      ngModel
+      [ngModel]="regcarForm.value.vecval"
+      (change)="VecvalChange()"
+    />
+    <app-error-message [errorInput]="vecval"></app-error-message> <br/></div>
+
+
+  <div class="form-group form-check park">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="parked"
+      name="parked"
+      ngModel
+      [ngModel]="regcarForm.value.parked"
+      #parked="ngModel"
+    />
+    <label for="parked" class="form-check-label">
+      The car is parked in private garage</label
+    >
+  </div>
+
+
+  <button
+    type="button"
+    class="btn btn-secondary"
+    id="btnadd"
+    name="btnadd"
+    (click)="
+    updateLocalstorage(); register(); ibanValidate(regcarForm.value.iban)
+    "
+    [disabled]="!regcarForm.valid"
+    
+  >
+    Save
+  </button>
+  <div
+    id="result"
+    style="font-weight: bold; font-size: 14px; padding: 10px 10px"
+  >
+    {{ errorMsg }}
+  </div>
+</form>

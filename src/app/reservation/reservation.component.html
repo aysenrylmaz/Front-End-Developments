@@ -1,0 +1,194 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+<form #reservForm="ngForm" (ngSubmit)="resForm()">
+  <h2>Reservation</h2>
+<br>
+
+ <!-- Name definition --> 
+
+
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-8 col-sm-12">
+                    <div class="form-group">
+                      <label for="Fname">Full Name:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Fname"
+                        class="form-control inputbox"
+                        name="Fname"
+                        ngModel
+                        NameValidator
+                        #Fname="ngModel"
+                        [ngModel]="reservForm.value.Fname"
+                        placeholder="ex.Jane Doe"/>
+                    </div>
+                  </div>
+  
+              </div>
+
+              <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number:*</label><br />
+                  <input
+                    required
+                    type="text"
+                    id="phoneNumber"
+                    class="form-control inputbox"
+                    name="phoneNumber"
+                    ngModel
+                    NameValidator
+                    #phoneNumber="ngModel"
+                    [ngModel]="reservForm.value.phoneNumber"
+                    placeholder="Enter Phone Number"/>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                  <label for="email">Email:*</label><br />
+                  <input
+                    required
+                    type="text"
+                    id="email"
+                    class="form-control inputbox"
+                    name="email"
+                    ngModel
+                    NameValidator
+                    #email="ngModel"
+                    [ngModel]="reservForm.value.email"
+                    placeholder="Enter Email"/>
+                </div>
+              </div>
+  
+              </div>
+  
+              <div class="row"  formArrayName="adress">
+                <div class="col-lg-6 col-sm-12">
+                  <label for="Attendee">Adress</label>
+                  <input type="text" class="form-control" id="Attendee" aria-describedby="Attendee" placeholder="Enter Adress">
+  
+                </div>
+
+
+                <div class="col-lg-3 col-sm-12">
+                    <div class="form-group">
+                      <label for="email">Postcode:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="postcode"
+                        class="form-control inputbox"
+                        name="postcode"
+                        ngModel
+                        NameValidator
+                        #postcode="ngModel"
+                        [ngModel]="reservForm.value.postcode"
+                        placeholder="Postcode"/>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row"  formArrayName="reservDate">
+                  <div class="form-group reservday col-lg-6 col-sm-12">
+                    <label for="bday">Reservaton Date: </label><br />
+                    <input
+                      required
+                      type="date"
+                      class="form-control inputbox"
+                      id="bday"
+                      name="bday"
+                      ngModel
+                      [ngModel]="reservForm.value.reservday"
+                      #bday="ngModel"
+                      placeholder="dd.mm.yyyy"/>
+                  </div>
+
+                  <div class="form-group reservday col-lg-6 col-sm-12">
+                  <label for="reservtime">Time: </label><br />
+                  <input
+                    required
+                    type="time"
+                    class="form-control inputbox"
+                    id="reservtime"
+                    name="reservtime"
+                    ngModel
+                    [ngModel]="reservForm.value.reservtime"
+                    #bday="ngModel"
+                    placeholder="hh:mm"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="process">Select process?</label><br />
+                <select
+                  (change)="validateProcess()"
+                  id="processList"
+                  [ngModel]="processitem"
+                  name="process"
+                  ngModel
+                  #process="ngModel"
+                >
+                  <option value="" disabled>Please Select</option>
+                  <option
+                    *ngFor="let item of processList"
+                    [value]="item.price"
+                    [selected]="item.price == processitem"
+                  >
+                    {{ item.text }}
+                  </option></select>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-lg-6 col-sm-12">
+                          <div class="form-group">
+                            <label for="Fname">Price:</label><br />
+                            <input
+                              required
+                              type="text"
+                              id="price"
+                              class="form-control inputbox"
+                              name="price"
+                              ngModel
+                              #price="ngModel"
+                              [value]="reservForm.value.process"
+                              [ngModel]="reservForm.value.price"/>
+                          </div> 
+                        </div>
+        
+                    </div>        
+
+              
+  
+            </div>
+        </div>
+        <div class="card-footer text-muted text-right">
+          <button type="button" class="btn btn-light ">Cancel</button>
+          <button type="button" class="btn btn-primary ">Save</button>
+        </div>
+      </div>
+    </div>
+  <br><br>
+  
+
+  <reservlist></reservlist>
+  <div class="alert alert-success">
+    <strong>Tickets booked!</strong>  will be redirected to Event List page.
+  </div>
+  
