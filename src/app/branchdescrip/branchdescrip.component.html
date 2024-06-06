@@ -1,0 +1,95 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #branchdescripForm="ngForm" (ngSubmit)="resForm()">
+<br> 
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+          <h2 style="text-align:center">Branch Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label for="branchcode">BranchCode:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="branchcode"
+                        class="form-control"
+                        name="branchcode"
+                        ngModel
+                        #branchcode="ngModel"
+                        [ngModel]="branchdescripForm.value.branchcode"/>
+                    </div>
+                  </div>
+  
+              </div>
+
+            
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="branchName">Branch Name:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="branchName"
+                      class="form-control"
+                      name="branchName"
+                      ngModel
+                      #branchName="ngModel"
+                      [ngModel]="branchdescripForm.value.branchName"
+                    />
+                  </div>
+                </div>
+              </div>
+                
+              </div>
+  
+            </div>
+
+            <div class="card-footer text-muted text-right">
+              <button type="button" class="btn btn-light ">Cancel</button>
+              <button type="button" class="btn btn-primary " (click)="updatebranchlist()">Save</button>
+            </div>
+
+            <div class="form-group">
+              <table class="table">
+                <thead>
+                  <!-- List name definition -->
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Branch Code</th>
+                    <th scope="col">Branch Name</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- List Variables -->
+                  <tr  *ngFor="let reg of this.listBranchData ; let id = index">
+                    <th scope="row">{{ id+1 }}</th>
+                    <td scope="row">{{ reg.branchcode }}</td>
+                    <td scope="row">{{ reg.branchName }}</td>
+                  
+                    <td>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  <br><br>

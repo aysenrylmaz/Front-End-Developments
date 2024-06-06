@@ -1,0 +1,298 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #personeldescripForm="ngForm" (ngSubmit)="resForm()">
+ <br> 
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h2 style="text-align:center">Personal Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+
+
+              <div class="row">
+
+                  <div class="col-lg-8 col-sm-12">
+                    <div class="form-group">
+                      <label for="Fname">Full Name:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Fname"
+                        class="form-control"
+                        name="Fname"
+                        ngModel
+                        NameValidator
+                        #Fname="ngModel"
+                        [ngModel]="personeldescripForm.value.Fname"
+                        placeholder="ex.Jane Doe"/>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group">
+                      <label for="Percode">Code:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Percode"
+                        class="form-control"
+                        name="Percode"
+                        ngModel
+                        #Percode="ngModel"
+                        [ngModel]="personeldescripForm.value.Percode"
+                    />
+                    </div>
+  
+                  </div>
+                </div>
+
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="perbranch">Branch:*</label><br />
+                    <select
+                      id="perbranchList"
+                      [ngModel]="personeldescripForm.value.perbranchitem"
+                      name="perbranch"
+                      ngModel
+                      #perbranch="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.branch"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+
+                  <div class="form-group radiostyle">
+                    <label>Additional branch preference? </label><br />
+                    <input
+                      required
+                      type="radio"
+                      id="radioyes"
+                      name="insured"
+                      value="true"
+                      name="radioC"
+                      ngModel
+                      #radioC="ngModel"
+                      [ngModel]="personeldescripForm.value.radioC"
+                    />
+                    <label for="yes">yes</label>
+                    <input
+                      type="radio"
+                      id="radiono"
+                      name="insured"
+                      value="false"
+                      name="radioC"
+                      ngModel
+                      #radioC="ngModel"
+                      [ngModel]="personeldescripForm.value.radioC"
+                    />
+                    <label for="no">no</label>
+                  </div>
+                </div>
+                  <div class="col-lg-6 col-sm-12">
+                  <div class="form-group"  *ngIf="radioC.value == 'true'">
+                    <label for="perbranch2">Additional Branch:*</label><br />
+                    <select
+                      id="perbranchList2"
+                      [ngModel]="personeldescripForm.value.perbranchitem2"
+                      name="perbranch2"
+                      ngModel
+                      #perbranch2="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.branch"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="prefClass">Preferred Class: </label><br />
+                    <select
+                      id="prefClassList"
+                      [ngModel]="personeldescripForm.value.prefClass"
+                      name="prefClass"
+                      ngModel
+                      #prefClass="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.grade"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  
+                  
+                  <div class="form-group form-check watchexempt">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="watchexempt"
+                      name="watchexempt"
+                      (click)="watchday()"
+                      ngModel
+                      [ngModel]="personeldescripForm.value.watchexempt"
+                      #watchexempt="ngModel"
+                    />
+                    <label for="watchexempt" class="form-check-label">
+                      Watch/</label
+                    >
+                  </div>
+
+                </div>
+
+
+                <div class="col-lg-3 col-sm-12" *ngIf="personeldescripForm.value.watchexempt== true">
+                    <div class="form-group">
+                      <label for="perbranch">Preferred Watch Days: </label><br />
+                    <select
+                      id="perwatchList"
+                      [ngModel]="personeldescripForm.value.perwatchitem"
+                      name="perwatch"
+                      ngModel
+                      #perwatch="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.day"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                    <div class="row">
+
+                      <div class="col-lg-6 col-sm-12">
+                          <div class="form-group">
+                            <label for="compulsorylesson">Compulsory lesson time:</label><br />
+                            <input
+                              required
+                              type="text"
+                              id="compulsorylesson"
+                              class="form-control"
+                              name="compulsorylesson"
+                              ngModel
+                              #compulsorylesson="ngModel"
+                              [ngModel]="personeldescripForm.value.compulsorylesson"
+                              (change)="compulsorylessonChange()"/>
+                          </div> 
+                        </div>
+        
+                    </div>
+
+
+                     <div class="form-group">
+                      <label for="mail">E-Mail:*</label><br />
+                      <input
+                        required
+                        type="email"
+                        class="form-control"
+                        id="mail"
+                        name="mail"
+                        ngModel
+                        [ngModel]="personeldescripForm.value.mail"
+                        #mail="ngModel"
+                        email
+                        placeholder="ex.janedoe@mail.com"/>
+                    </div>
+              
+  
+            </div>
+        </div>
+
+        <div class="card-footer text-muted text-right">
+          <button type="button" class="btn btn-light ">Cancel</button>
+          <button type="button" class="btn btn-primary " (click)="updatePersonallist()">Save</button>
+        </div>
+      
+
+
+      <div class="form-group">
+        <table class="table">
+          <thead>
+            <!-- List name definition -->
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Branch</th>
+              <th scope="col">Additional Branch Preference</th>
+              <th scope="col">Additional Branch</th>
+              <th scope="col">Preffered Class</th>
+              <th scope="col">Watch</th>
+              <th scope="col">Preffered Watch Days</th>
+              <th scope="col">Compulsory Lesson Time</th>
+              <th scope="col">Email</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <!-- List Variables -->
+            <tr  *ngFor="let reg of this.listPersonalData ; let id = index">
+              <th scope="row">{{ id+1 }}</th>
+              <td scope="row">{{ reg.Fname }}</td>
+              <td scope="row">{{ reg.perbranch }}</td>
+              <td scope="row">{{ reg.radioC }}</td>
+              <td scope="row">{{ reg.perbranch2 }}</td>
+              <td scope="row">{{ reg.prefClass }}</td>
+              <td scope="row">{{ reg.watchexempt }}</td>
+              <td scope="row">{{ reg.perWatch }}</td>
+              <td scope="row">{{ reg.compulsorylesson }}</td>
+              <td scope="row">{{ reg.mail }}</td>
+              
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+    </div>
+  </div>
+  <br><br>

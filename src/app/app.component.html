@@ -1,0 +1,54 @@
+
+   
+   <app-header></app-header>
+
+   <app-sidebar *ngIf="_service.sendDatatoapp()"></app-sidebar>
+
+<div>
+   <div page-container>
+      <ng-container [ngSwitch]="_service.currentPage">
+          <ng-container *ngSwitchCase="0">
+            <app-register-page></app-register-page>   
+          </ng-container>
+          <ng-container *ngSwitchCase="1">
+            <app-table></app-table>
+          </ng-container>
+          <ng-container *ngSwitchCase="2">
+            <app-program1></app-program1>
+          </ng-container>
+          <ng-container *ngSwitchCase="3">
+            <app-program2></app-program2>
+          </ng-container>
+          <ng-container *ngSwitchCase="4">
+            <app-program3></app-program3>
+          </ng-container>
+          <ng-container *ngSwitchCase="5">
+            <app-program4></app-program4>
+          </ng-container>
+         <ng-container *ngSwitchCase="6">
+           <app-coursedescrip></app-coursedescrip>
+         </ng-container>
+         <ng-container *ngSwitchCase="7">
+           <app-classdescrip></app-classdescrip>
+         </ng-container>
+         <ng-container *ngSwitchCase="8">
+           <app-personaldescrip></app-personaldescrip>
+         </ng-container>
+         <ng-container *ngSwitchCase="9">
+           <app-studentdescrip></app-studentdescrip>
+         </ng-container>
+         <ng-container *ngSwitchCase="10">
+           <app-parentdescrip></app-parentdescrip>
+         </ng-container>
+         <ng-container *ngSwitchCase="11">
+            <app-branchdescrip></app-branchdescrip>
+          </ng-container>
+          <ng-container *ngSwitchCase="12">
+            <app-watchdescrip></app-watchdescrip>
+         </ng-container>
+         <ng-container *ngSwitchCase="13">
+            <app-parameters></app-parameters>
+         </ng-container>
+      </ng-container>
+  </div>
+</div>

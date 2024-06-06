@@ -1,0 +1,223 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #parentdescripForm="ngForm" (ngSubmit)="resForm()">
+<br> 
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+          <h2 style="text-align:center">Parent Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-8 col-sm-12">
+                    <div class="form-group">
+                      <label for="Pname">Full Name:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Pname"
+                        class="form-control"
+                        name="Pname"
+                        ngModel
+                        NameValidator
+                        #Pname="ngModel"
+                        [ngModel]="parentdescripForm.value.Pname"
+                       />
+                    </div>
+                  </div>
+  
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group">
+                      <label for="parentCode">Code:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="parentCode"
+                        class="form-control"
+                        name="parentCode"
+                        ngModel
+                        #parentCode="ngModel"
+                        [ngModel]="parentdescripForm.value.parentCode"
+                    />
+                    </div>
+  
+                  </div>
+
+
+              </div>
+
+              <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number:*</label><br />
+                  <input
+                    required
+                    type="text"
+                    id="phoneNumber"
+                    class="form-control"
+                    name="phoneNumber"
+                    ngModel
+                    #phoneNumber="ngModel"
+                    [ngModel]="parentdescripForm.value.phoneNumber"
+                    placeholder="Enter Phone Number"/>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                  <label for="email">Email:*</label><br />
+                  <input
+                    required
+                    type="text"
+                    id="email"
+                    class="form-control"
+                    name="email"
+                    ngModel
+                    #email="ngModel"
+                    [ngModel]="parentdescripForm.value.email"
+                    placeholder="Enter Email"/>
+                </div>
+              </div>
+  
+              </div>
+  
+              <div class="row"  formArrayName="adress">
+                <div class="col-lg-6 col-sm-12">
+                  <label for="Attendee">Adress</label>
+                  <input type="text" class="form-control" id="Attendee" aria-describedby="Attendee" placeholder="Enter Adress">
+  
+                </div>
+
+
+                <div class="col-lg-3 col-sm-12">
+                    <div class="form-group">
+                      <label for="postcode">Postcode:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="postcode"
+                        class="form-control"
+                        name="postcode"
+                        ngModel
+                        #postcode="ngModel"
+                        [ngModel]="parentdescripForm.value.postcode"
+                        placeholder="Postcode"/>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row"  formArrayName="parentbirthday">
+                  <div class="form-group col-lg-6 col-sm-12">
+                    <label for="parentbirthday">Birthday Date: </label><br />
+                    <input
+                      required
+                      type="date"
+                      class="form-control"
+                      id="parentbirthday"
+                      name="parentbirthday"
+                      ngModel
+                      [ngModel]="parentdescripForm.value.parentbirthday"
+                      #parentbirthday="ngModel"
+                      placeholder="dd.mm.yyyy"/>
+                  </div>
+              </div>
+
+                    <div class="row">
+
+                      <div class="col-lg-6 col-sm-12">
+                          <div class="form-group">
+                            <label for="prstudent">Student:</label><br />
+                            <input
+                              required
+                              type="text"
+                              id="prstudent"
+                              class="form-control"
+                              name="prstudent"
+                              ngModel
+                              #prstudent="ngModel"
+                              [ngModel]="parentdescripForm.value.prstudent"/>
+                          </div> 
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+                          <div class="form-group">
+                            <label for="availableDays">Available Days:*</label><br />
+                            <select
+                              id="availableDaysList"
+                              [ngModel]="parentdescripForm.value.availableDays"
+                              name="availableDays"
+                              ngModel
+                              #availableDays="ngModel"
+                            >
+                              <option value="" disabled>Please Select</option>
+                              <option
+                                *ngFor="let item of data.day"
+                                [value]="item.value"
+                              >
+                                {{ item.text }}
+                              </option>
+                            </select>
+                                </div>
+                              </div>
+        
+                    </div>        
+
+              
+  
+            </div>
+        </div>
+        <div class="card-footer text-muted text-right">
+          <button type="button" class="btn btn-light ">Cancel</button>
+          <button type="button" class="btn btn-primary ">Save</button>
+        </div>
+
+        <div class="form-group">
+          <table class="table">
+            <thead>
+              <!-- List name definition -->
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Adress</th>
+                <th scope="col">Post Code</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Student</th>
+                <th scope="col">Available Days:*</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <!-- List Variables -->
+              <tr  *ngFor="let reg of this.listParentData ; let id = index">
+                <th scope="row">{{ id+1 }}</th>
+                <td scope="row">{{ reg.Pname }}</td>
+                <td scope="row">{{ reg.phoneNumber }}</td>
+                <td scope="row">{{ reg.email }}</td>
+                <td scope="row">{{ reg.Attendee }}</td>
+                <td scope="row">{{ reg.postcode }}</td>
+                <td scope="row">{{ reg.parentbirthday }}</td>
+                <td scope="row">{{ reg.prstudent }}</td>
+                <td scope="row">{{ reg.availableDays }}</td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <br><br>

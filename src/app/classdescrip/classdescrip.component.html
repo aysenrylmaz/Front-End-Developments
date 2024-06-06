@@ -1,0 +1,168 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #classdescripForm="ngForm" (ngSubmit)="resForm()">
+<br> 
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h2 style="text-align:center">Class Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-8 col-sm-12">
+                    <div class="form-group">
+                      <label for="Cname">Class Name:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Cname"
+                        class="form-control"
+                        name="Cname"
+                        ngModel
+                        NameValidator
+                        #Cname="ngModel"
+                        [ngModel]="classdescripForm.value.Cname"/>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group">
+                      <label for="classCode">Code:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="classCode"
+                        class="form-control"
+                        disabled
+                        name="classCode"
+                        ngModel
+                        #classCode="ngModel"
+                        [placeholder]="placeholder"
+                        [ngModel]="classdescripForm.value.classCode"
+                        />
+                    </div>
+  
+                  </div>
+  
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="descripClass">Class: </label><br />
+                    <select
+                      id="descripClass"
+                      [ngModel]="classdescripForm.value.descripClass"
+                      name="descripClass"
+                      ngModel
+                      #descripClass="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.grade"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+
+
+                      <div class="col-lg-6 col-sm-12">
+                        <div class="form-group">
+                          <label for="branchGrade">Grade Branch: </label><br />
+                          <select
+                            id="branchGrade"
+                            [ngModel]="classdescripForm.value.branchGrade"
+                            name="branchGrade"
+                            ngModel
+                            #branchGrade="ngModel"
+                          >
+                            <option value="" disabled>Please Select</option>
+                            <option
+                              *ngFor="let item of data.gradebranch"
+                              [value]="item.value"
+                            >
+                              {{ item.text }}
+                            </option>
+                          </select>
+                              </div>
+                            </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="lokationClass">Lokation: </label><br />
+                    <select
+                      id="lokationClass"
+                      [ngModel]="classdescripForm.value.lokationClass"
+                      name="lokationClass"
+                      ngModel
+                      #lokationClass="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.lokation"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+                    </div>
+  
+            </div>
+        </div>
+        <div class="card-footer text-muted text-right">
+          <button type="button" class="btn btn-light ">Cancel</button>
+          <button type="button" class="btn btn-primary "  (click)="lok(); updateClasslist(); ">Save</button>
+        </div>
+      
+
+
+      <div class="form-group">
+        <table class="table">
+          <thead>
+            <!-- List name definition -->
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Class Name</th>
+              <th scope="col">Grade</th>
+              <th scope="col">Grade Branch</th>
+              <th scope="col">Lokation</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <!-- List Variables -->
+            <tr  *ngFor="let reg of this.listclassData ; let id = index">
+              <th scope="row">{{ id+1 }}</th>
+              <td scope="row">{{ reg.Cname }}</td>
+              <td scope="row">{{ reg.classgrade }}</td>
+              <td scope="row">{{ reg.classgradebranch }}</td>
+              <td scope="row">{{ reg.lokation }}</td>
+        
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  <br><br>

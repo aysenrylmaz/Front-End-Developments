@@ -1,0 +1,34 @@
+<div class="sidebar">
+    <a class="active" (click)="goRegisters()">Registers</a> 
+    <a (click)="goSchedules()">Schedules</a>
+    <a (click)="openProgramBar()">
+          Programs >> <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <div *ngIf="programBar == true" style="font-size:13px">
+          <a (click)="goPrograms1()"> *School Timetable</a>
+          <a (click)="goPrograms2()"> *Watch Timetable</a>
+          <a (click)="goPrograms3()"> *Salary Calculation</a>
+          <a (click)="goPrograms4()"> *Extra Class Calculation</a>
+        </div>
+   <a (click)="openParameterBar()">
+          Parameters >>
+        </a>
+        <div *ngIf="parameterBar == true" style="font-size:13px">
+          <a ngbDropdownItem (click)="gocoursedescrip()"> *Course Descriptions</a>
+          <a ngbDropdownItem (click)="goclassdescrip()"> *Class Descriptions</a>
+          <a ngbDropdownItem (click)="gopersonaldescrip()"> *Personal Descriptions</a>
+          <a ngbDropdownItem (click)="gostudentdescrip()"> *Student Descriptions</a>
+          <a ngbDropdownItem (click)="goparentdescrip()"> *Parent Descriptions</a>
+          <a ngbDropdownItem (click)="gobranchdescrip()"> *Branch Descriptions</a>
+          <a ngbDropdownItem (click)="gowatchdescrip()"> *Watch Descriptions</a>
+          <a ngbDropdownItem (click)="goParameters()"> *Another Parameters</a>
+          <a ngbDropdownItem>Something else is here</a>
+        
+     
+        </div>
+    <a href="#about">About</a>
+  </div>
+
+
+
+  

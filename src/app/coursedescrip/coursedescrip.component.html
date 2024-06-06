@@ -1,0 +1,260 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #coursedescripForm="ngForm" (ngSubmit)="resForm()">
+ <br> 
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h2 style="text-align:center">Course Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-8 col-sm-12">
+                    <div class="form-group">
+                      <label for="Fname">Course Name:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Cname"
+                        class="form-control"
+                        name="Cname"
+                        ngModel
+                        NameValidator
+                        #Cname="ngModel"
+                        [ngModel]="coursedescripForm.value.Cname"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group">
+                      <label for="courseCode">Code:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="courseCode"
+                        class="form-control"
+                        name="courseCode"
+                        ngModel
+                        #courseCode="ngModel"
+                        [ngModel]="coursedescripForm.value.courseCode"
+                    />
+                    </div>
+  
+                  </div>
+                  
+  
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  
+                  
+                  <div class="form-group">
+                    <label for="coursecredit">Credit:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="coursecredit"
+                      class="form-control"
+                      name="coursecredit"
+                      ngModel
+                      #coursecredit="ngModel"
+                      [ngModel]="coursedescripForm.value.coursecredit"
+                      />
+                  </div>
+
+                </div>
+
+
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group">
+                      <label for="courseakts">Akts:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="courseakts"
+                        class="form-control"
+                        name="courseakts"
+                        ngModel
+                        #courseakts="ngModel"
+                        [ngModel]="coursedescripForm.value.courseakts"
+                    />
+                    </div>
+  
+                  </div>
+                  
+
+                </div>
+              
+            
+              <div class="row">
+
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="courseclass">Course Class: </label><br />
+                    <select
+                      id="courseclass"
+                      [ngModel]="coursedescripForm.value.courseclass"
+                      name="courseclass"
+                      ngModel
+                      #courseclass="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.grade"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+
+
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="courseobligation"
+                        name="courseobligation"
+                        ngModel
+                        [ngModel]="coursedescripForm.value.courseobligation"
+                        #courseobligation="ngModel"
+                      />
+                      <label for="courseobligation" class="form-check-label">
+                        Course Obligation</label
+                      >
+                    </div>
+  
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="coursefield">Course Field:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="coursefield"
+                      class="form-control"
+                      name="coursefield"
+                      ngModel
+                      #coursefield="ngModel"
+                      [ngModel]="coursedescripForm.value.coursefield"
+                  />
+                  </div>
+                      </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="courselanguage">Course Language:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="courselanguage"
+                      class="form-control"
+                      name="courselanguage"
+                      ngModel
+                      #courselanguage="ngModel"
+                      [ngModel]="coursedescripForm.value.courselanguage"
+                  />
+                  </div>
+                </div>
+
+
+                <div class="col-lg-3 col-sm-12">
+                  <div class="form-group">
+                    <label for="coursepersonal">Course Personal:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="coursepersonal"
+                      class="form-control"
+                      name="coursepersonal"
+                      ngModel
+                      #coursepersonal="ngModel"
+                      [ngModel]="coursedescripForm.value.coursepersonal"
+                  />
+                  </div>
+
+                </div>
+
+                </div>
+
+
+
+              
+  
+            </div>
+        </div>
+
+        <div class="card-footer text-muted text-right">
+          <button type="button" class="btn btn-light ">Cancel</button>
+          <button type="button" class="btn btn-primary " (click)="updateCourselist()">Save</button>
+        </div>
+
+
+      <div class="form-group tablediv">
+        <table class="table">
+          <thead>
+            <!-- List name definition -->
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Course Name</th>
+              <th scope="col">Credit</th>
+              <th scope="col">Akts</th>
+              <th scope="col">Class</th>
+              <th scope="col">Obligation</th>
+              <th scope="col">Field</th>
+              <th scope="col">Language</th>
+              <th scope="col">Personal</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <!-- List Variables -->
+            <tr  *ngFor="let reg of this.listcourseData ; let id = index">
+              <th scope="row">{{ id+1 }}</th>
+              <td scope="row">{{ reg.Cname }}</td>
+              <td scope="row">{{ reg.coursecredit }}</td>
+              <td scope="row">{{ reg.courseakts }}</td>
+              <td scope="row">{{ reg.courseclass }}</td>
+              <td scope="row">{{ reg.courseobligation }}</td>
+              <td scope="row">{{ reg.coursefield }}</td>
+              <td scope="row">{{ reg.courselanguage }}</td>
+              <td scope="row">{{ reg.coursepersonal }}</td>
+              
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+    </div>
+  </div>
+  <br><br>

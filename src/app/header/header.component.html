@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-row">
+    <a class="navbar-brand" (click)="openSidebar()" >ModOkul</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto p-2">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="goRegisters()">Registers <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="goSchedules()">Schedules</a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <div ngbDropdown class="d-inline-block">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" ngbDropdownToggle aria-expanded="false">
+              Programs
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a ngbDropdownItem (click)="goPrograms1()">School Timetable</a>
+              <a ngbDropdownItem (click)="goPrograms2()">Watch Timetable</a>
+              <a ngbDropdownItem (click)="goPrograms3()">Salary Calculation</a>
+              <a ngbDropdownItem (click)="goPrograms4()">Extra Class Calculation</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <div ngbDropdown class="d-inline-block">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" ngbDropdownToggle aria-expanded="false">
+              Parameters
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a ngbDropdownItem (click)="gocoursedescrip()">Course Descriptions</a>
+              <a ngbDropdownItem (click)="goclassdescrip()">Class Descriptions</a>
+              <a ngbDropdownItem (click)="gopersonaldescrip()">Personal Descriptions</a>
+              <a ngbDropdownItem (click)="gostudentdescrip()">Student Descriptions</a>
+              <a ngbDropdownItem (click)="goparentdescrip()">Parent Descriptions</a>
+              <a ngbDropdownItem (click)="gobranchdescrip()">Branch Descriptions</a>
+              <a ngbDropdownItem (click)="gowatchdescrip()">Watch Descriptions</a>
+              <a ngbDropdownItem (click)="goParameters()">Another Parameters</a>
+              <a ngbDropdownItem>Something else is here</a>
+            </div>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    <form class="form-inline my-2 my-rg-0 d-flex">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </nav>

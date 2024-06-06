@@ -1,0 +1,318 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #studentdescripForm="ngForm" (ngSubmit)="resForm()">
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h2 style="text-align:center">Student Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-8 col-sm-12">
+                    <div class="form-group">
+                      <label for="Fname">Full Name:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="Fname"
+                        class="form-control"
+                        name="Fname"
+                        ngModel
+                        NameValidator
+                        #Fname="ngModel"
+                        [ngModel]="studentdescripForm.value.Fname"
+                        placeholder="ex.Jane Doe"/>
+                    </div>
+                  </div>
+  
+                  <div class="col-lg-3 col-sm-12">
+                  
+                  
+                    <div class="form-group">
+                      <label for="studentCode">Code:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="studentCode"
+                        class="form-control"
+                        name="studentCode"
+                        ngModel
+                        #studentCode="ngModel"
+                        [ngModel]="studentdescripForm.value.studentCode"
+                    />
+                    </div>
+  
+                  </div>
+
+              </div>
+              
+              <div class="row">
+                
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="studClass">Class:* </label><br />
+                    <select
+                      id="studClass"
+                      [ngModel]="studentdescripForm.value.studClass"
+                      name="studClass"
+                      ngModel
+                      #studClass="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.grade"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 col-sm-12">
+                        <div class="form-group">
+                        <label for="studbranch">Branch:*</label><br />
+                        <select
+                          id="studbranch"
+                          [ngModel]="studentdescripForm.value.studbranch"
+                          name="studbranch"
+                          ngModel
+                          #studbranch="ngModel"
+                        >
+                          <option value="" disabled>Please Select</option>
+                          <option
+                            *ngFor="let item of data.branch"
+                            [value]="item.value"
+                          >
+                            {{ item.text }}
+                          </option>
+                        </select>
+                      </div>
+                          </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                  <div class="form-group">
+                    <label for="regDate">Registration Date:*</label><br />
+                    <input
+                      required
+                      type="date"
+                      id="regDate"
+                      class="form-control"
+                      name="regDate"
+                      ngModel
+                      #regDate="ngModel"
+                      [ngModel]="studentdescripForm.value.regDate"
+                    />
+                  </div>
+                </div>
+                  
+              </div>
+              <br>
+              <div class="row">
+                <h5>Personal Information</h5>
+                <br />
+
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="Pname">Parent Name:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="Pname"
+                      class="form-control"
+                      name="Pname"
+                      ngModel
+                      NameValidator
+                      #Pname="ngModel"
+                      [ngModel]="studentdescripForm.value.Pname"
+                      />
+                  </div>
+
+                </div>
+
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="birthDate">Date of Birth:*</label><br />
+                    <input
+                      required
+                      type="date"
+                      id="birthDate"
+                      class="form-control"
+                      name="birthDate"
+                      ngModel
+                      #birthDate="ngModel"
+                      [ngModel]="studentdescripForm.value.birthDate"
+                    />
+                  </div>
+                </div>
+
+                
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="placeBirth">Place of Birth:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="placeBirth"
+                      class="form-control"
+                      name="placeBirth"
+                      ngModel
+                      #placeBirth="ngModel"
+                      [ngModel]="studentdescripForm.value.placeBirth"
+                      />
+                  </div>
+
+                </div>
+
+                </div>
+
+                    <div class="row">
+
+                      <div class="col-lg-6 col-sm-12">
+                        <div class="form-group">
+                          <label for="iban">Iban:</label><br />
+                          <input
+                            required
+                            type="iban"
+                            class="form-control"
+                            id="iban"
+                            name="iban"
+                            ngModel
+                            [ngModel]="studentdescripForm.value.iban"
+                            #iban="ngModel"
+                            placeholder="DE"/>
+                        </div>
+                        </div>
+        
+                    </div>
+
+
+<div class="row"> 
+  
+  <div class="col-lg-6 col-sm-12">
+  <div class="form-group">
+    <label for="Phone">Phone:*</label><br />
+    <input
+      required
+      type="text"
+      id="Phone"
+      class="form-control"
+      name="Phone"
+      ngModel
+      #Phone="ngModel"
+      [ngModel]="studentdescripForm.value.Phone"
+      />
+  </div>
+</div>
+
+<div class="col-lg-6 col-sm-12">
+<div class="form-group">
+  <label for="mail">E-Mail:*</label><br />
+  <input
+    required
+    type="email"
+    class="form-control"
+    id="mail"
+    name="mail"
+    ngModel
+    [ngModel]="studentdescripForm.value.mail"
+    #mail="ngModel"
+    email
+    placeholder="ex.janedoe@mail.com"/>
+</div>
+</div>
+
+</div>
+
+<div class="row">
+                
+  <div class="col-lg-6 col-sm-12">
+    <div class="form-group">
+      <label for="studSupervisor">Supervisor:* </label><br />
+      <select
+        id="studSupervisor"
+        [ngModel]="studentdescripForm.value.studSupervisor"
+        name="studSupervisor"
+        ngModel
+        #studSupervisor="ngModel"
+      >
+        <option value="" disabled>Please Select</option>
+        <option
+          *ngFor="let item of data.grade"
+          [value]="item.value"
+        >
+          {{ item.text }}
+        </option>
+      </select>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+    <div class="card-footer text-muted text-right">
+          <button type="button" class="btn btn-light ">Cancel</button>
+          <button type="button" class="btn btn-primary " (click)="updateStudentlist()">Save</button>
+   </div>
+  
+
+
+      <div class="form-group tablediv">
+        <table class="table">
+          <thead>
+            <!-- List name definition -->
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Class</th>
+              <th scope="col">Branch</th>
+              <th scope="col">Registration Date</th>
+              <th scope="col">Parent Name</th>
+              <th scope="col">Birth Date</th>
+              <th scope="col">Birth Place</th>
+              <th scope="col">Iban</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Supervisor</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <!-- List Variables -->
+            <tr  *ngFor="let reg of this.listStudentData ; let id = index">
+              <th scope="row">{{ id+1 }}</th>
+              <td scope="row">{{ reg.Fname }}</td>
+              <td scope="row">{{ reg.studClass }}</td>
+              <td scope="row">{{ reg.studbranch }}</td>
+              <td scope="row">{{ reg.regDate }}</td>
+              <td scope="row">{{ reg.Pname }}</td>
+              <td scope="row">{{ reg.birthDate }}</td>
+              <td scope="row">{{ reg.placeBirth }}</td>
+              <td scope="row">{{ reg.iban }}</td>
+              <td scope="row">{{ reg.Phone }}</td>
+              <td scope="row">{{ reg.mail }}</td>
+
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+    </div>
+  </div>
+  <br><br>

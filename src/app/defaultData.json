@@ -1,0 +1,106 @@
+{
+  "day": [
+    { "value": 1, "text": "Pazartesi" },
+    { "value": 2, "text": "Salı" },
+    { "value": 3, "text": "Çarşamba" },
+    { "value": 4, "text": "Perşembe" },
+    { "value": 5, "text": "Cuma" }
+  ],
+
+  "grade": [
+    { "value": 1, "text": "1. Sinif" },
+    { "value": 2, "text": "2. Sinif" },
+    { "value": 3, "text": "3. Sinif" },
+    { "value": 4, "text": "4. Sinif" },
+    { "value": 5, "text": "5. Sinif" },
+    { "value": 6, "text": "6. Sinif" },
+    { "value": 7, "text": "7. Sinif" },
+    { "value": 8, "text": "8. Sinif" },
+    { "value": 9, "text": "9. Sinif" },
+    { "value": 10, "text": "10. Sinif" },
+    { "value": 11, "text": "11. Sinif" },
+    { "value": 12, "text": "12. Sinif" }
+  ],
+
+  "field": [
+    { "value": 1, "text": "Hazirlik Sinifi" },
+    { "value": 2, "text": "Sayisal" },
+    { "value": 3, "text": "Sözel" },
+    { "value": 4, "text": "Esit Agirlik" }
+  ],
+
+  "gradebranch": [
+    { "value": 1, "text": "A SUBESI" },
+    { "value": 2, "text": "B SUBESI" },
+    { "value": 3, "text": "C SUBESI" },
+    { "value": 4, "text": "D SUBESI" },
+    { "value": 5, "text": "E SUBESI" },
+    { "value": 6, "text": "F SUBESI" },
+    { "value": 7, "text": "G SUBESI" },
+    { "value": 8, "text": "H SUBESI" },
+    { "value": 9, "text": "I SUBESI" },
+    { "value": 10, "text": "I SUBESI" },
+    { "value": 11, "text": "J SUBESI" },
+    { "value": 12, "text": "K SUBESI" },
+    { "value": 13, "text": "L SUBESI" },
+    { "value": 14, "text": "M SUBESI" },
+    { "value": 15, "text": "N SUBESI" },
+    { "value": 16, "text": "O SUBESI" },
+    { "value": 17, "text": "P SUBESI" },
+    { "value": 18, "text": "R SUBESI" },
+    { "value": 19, "text": "S SUBESI" },
+    { "value": 20, "text": "T SUBESI" },
+    { "value": 21, "text": "U SUBESI" },
+    { "value": 22, "text": "V SUBESI" },
+    { "value": 23, "text": "Y SUBESI" },
+    { "value": 24, "text": "Z SUBESI" }
+  ],
+
+  "lokation": [
+    { "value": 0, "text": "Bahçe" },
+    { "value": 1, "text": "1. Kat" },
+    { "value": 2, "text": "2. Kat" },
+    { "value": 3, "text": "3. Kat" },
+    { "value": 4, "text": "4. Kat" },
+    { "value": 5, "text": "5. Kat" },
+    { "value": 6, "text": "6. Kat" },
+    { "value": 7, "text": "7. Kat" },
+    { "value": 8, "text": "Diger" }
+  ],
+
+  "branch": [
+    { "value": 0, "text": "Default" },
+    { "value": 1, "text": "Turkish : Türkçe" },
+    { "value": 2, "text": "English : Ingilizce" },
+    { "value": 3, "text": "Science and Technology : Fen ve Teknoloji" },
+    { "value": 4, "text": "Social Studies : Sosyal Bilgiler" },
+    { "value": 5, "text": "Maths : Matematik" },
+    {
+      "value": 6,
+      "text": "Religion and Morals : Din Kültürü ve Ahlak Bilgisi"
+    },
+    {
+      "value": 7,
+      "text": "Physical Education (P.E) / Training : Beden Egitimi"
+    },
+    { "value": 8, "text": "Art : Resim" },
+    { "value": 9, "text": "Music : Müzik" },
+    { "value": 10, "text": "Information Technology : Bilisim Teknolojileri" },
+    { "value": 11, "text": "History : Tarih" },
+    { "value": 12, "text": "Geography : Cografya" },
+    { "value": 13, "text": "Litarature : Edebiyat" },
+    { "value": 14, "text": "Chemistry : Kimya" },
+    { "value": 15, "text": "Physics : Fizik" },
+    { "value": 16, "text": "Biology : Biyoloji" },
+    { "value": 17, "text": "Drama : Tiyatro" },
+    { "value": 18, "text": "Chess : Satranç" }
+  ],
+
+  "clastime": [
+    { "value": 1, "text": "09:00-09:45" },
+    { "value": 2, "text": "10:00-10:45" },
+    { "value": 3, "text": "11:00-11:45" },
+    { "value": 4, "text": "13:00-13:45" },
+    { "value": 5, "text": "14:00-14:45" }
+  ]
+}

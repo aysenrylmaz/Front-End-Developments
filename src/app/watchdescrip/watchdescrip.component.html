@@ -1,0 +1,177 @@
+<script
+  type="text/javascript"
+  src="//unpkg.com/openiban.js@0.1.0/dist/openiban.browser.js"
+></script>
+
+<form #watchdescripForm="ngForm" (ngSubmit)="resForm()">
+<br> 
+
+ <div class="row justify-content-center">
+    <div class="col-7">
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+          <h2 style="text-align:center">Watch Descriptions</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+
+              <div class="row">
+
+                <div class="col-lg-6 col-sm-12">
+                    <div class="form-group">
+                      <label for="watchcode">WatchCode:*</label><br />
+                      <input
+                        required
+                        type="text"
+                        id="watchcode"
+                        class="form-control"
+                        name="watchcode"
+                        ngModel
+                        #watchcode="ngModel"
+                        [ngModel]="watchdescripForm.value.watchcode"/>
+                    </div>
+                  </div>
+  
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="lokationwatch">Lokation: </label><br />
+                    <select
+                      id="lokationwatch"
+                      [ngModel]="watchdescripForm.value.lokationwatch"
+                      name="lokationwatch"
+                      ngModel
+                      #lokationwatch="ngModel"
+                    >
+                      <option value="" disabled>Please Select</option>
+                      <option
+                        *ngFor="let item of data.lokation"
+                        [value]="item.value"
+                      >
+                        {{ item.text }}
+                      </option>
+                    </select>
+                        </div>
+                      </div>
+                    </div>
+
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="watchDate">Watch Date:*</label><br />
+                    <input
+                      required
+                      type="date"
+                      id="watchDate"
+                      class="form-control"
+                      name="watchDate"
+                      ngModel
+                      #watchDate="ngModel"
+                      [ngModel]="watchdescripForm.value.watchDate"
+                    />
+                  </div>
+                </div>
+             
+  
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="watchTime">Watch Time:*</label><br />
+                    <input
+                      required
+                      type="time"
+                      id="watchTime"
+                      class="form-control"
+                      name="watchTime"
+                      ngModel
+                      #watchTime="ngModel"
+                      [ngModel]="watchdescripForm.value.watchTime"
+                    />
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="watchPersonal">Watch Personal:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="watchPersonal"
+                      class="form-control"
+                      name="watchPersonal"
+                      ngModel
+                      #watchPersonal="ngModel"
+                      [ngModel]="watchdescripForm.value.watchPersonal"
+                    />
+                  </div>
+                </div>
+             
+  
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="watchStudent">Watch Student:*</label><br />
+                    <input
+                      required
+                      type="text"
+                      id="watchStudent"
+                      class="form-control"
+                      name="watchStudent"
+                      ngModel
+                      #watchStudent="ngModel"
+                      [ngModel]="watchdescripForm.value.watchStudent"
+                    />
+                  </div>
+                </div>
+
+              </div>
+                
+              </div>
+  
+            </div>
+
+            <div class="card-footer text-muted text-right">
+              <button type="button" class="btn btn-light ">Cancel</button>
+              <button type="button" class="btn btn-primary " (click)="updateWatchlist()">Save</button>
+            </div>
+
+            <div class="form-group">
+              <table class="table">
+                <thead>
+                  <!-- List name definition -->
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">WatchCode</th>
+                    <th scope="col">Lokation</th>
+                    <th scope="col">Watch Date</th>
+                    <th scope="col">Watch Time</th>
+                    <th scope="col">Watch Personal</th>
+                    <th scope="col">Watch Student</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- List Variables -->
+                  <tr  *ngFor="let reg of this.listWatchData ; let id = index">
+                    <th scope="row">{{ id+1 }}</th>
+                    <td scope="row">{{ reg.Cname }}</td>
+                    <td scope="row">{{ reg.classgrade }}</td>
+                    <td scope="row">{{ reg.classgradebranch }}</td>
+                    <td scope="row">{{ reg.lokation }}</td>
+              
+                    <td>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  <br><br>
